@@ -4,12 +4,13 @@ const app=express();
 const session= require('express-session');
 //motor de vistas
 app.set('view engine','ejs');
+require('dotenv').config()
 const port = process.env.PORT || 3000;
 //session
 app.use(session({
     secret:'yojay',
     resave:true,
-    saveUninitialized:true
+    saveUninitialized
 }))
 //body para el post
 app.use(express.urlencoded({extended:false}));
@@ -26,6 +27,6 @@ app.use(express.static(__dirname + "/public"));
 
 //inicio del servidor
 app.listen(port,()=>{
-    console.log('conectado  al servidor 3000')
+    console.log('conectado  al servidor '+port)
 })
 
