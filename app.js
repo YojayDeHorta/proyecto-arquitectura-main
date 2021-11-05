@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 app.use(session({
     secret:'yojay',
     resave:true,
-    saveUninitialized
+    saveUninitialized:true
 }))
 //body para el post
 app.use(express.urlencoded({extended:false}));
